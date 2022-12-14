@@ -6,10 +6,17 @@ public class VerticesDTO {
 	
 	private Point3d[] pointsIn;
 	private Point3d[] pointsOut;
+	private int[][] faces;
 	
 	public VerticesDTO(Point3d[] pointsIn, Point3d[] pointsOut) {
 		this.setPointsIn(pointsIn);
 		this.setPointsOut(pointsOut);
+	}
+	
+	public VerticesDTO(Point3d[] pointsIn, Point3d[] pointsOut, int[][] faces) {
+		this.setPointsIn(pointsIn);
+		this.setPointsOut(pointsOut);
+		this.faces = faces;
 	}
 
 	public Point3d[] getPointsOut() {
@@ -26,5 +33,13 @@ public class VerticesDTO {
 
 	public void setPointsIn(Point3d[] pointsIn) {
 		this.pointsIn = pointsIn;
+	}
+
+	public int[][] getFaces() {
+		return faces;
+	}
+
+	public void setFaces(int[][] faces) {
+		this.faces = faces;
 	}
 }

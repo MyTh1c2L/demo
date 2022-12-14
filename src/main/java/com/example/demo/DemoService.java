@@ -39,13 +39,25 @@ public class DemoService {
 		return verticesOut;
 	}
 	
+	public VerticesDTO getBody() {
+		Point3d[] vertices = hull.getVertices();
+		int[][] faces = hull.getFaces();
+		VerticesDTO verDto = new VerticesDTO(points, vertices, faces);
+		return verDto;
+	}
+	
 	private void generatePoints() {
-		int count = (int) (Math.random() * 500);
+		int count = 100000;
 		points = new Point3d[count];
 		for (int i = 0; i < count; i++) {
-			double x = -50 + Math.random() * 50;
-			double y = -50 + Math.random() * 50;
-			double z = -50 + Math.random() * 50;
+			double x = -4000 + Math.random() * 8000;
+			double y = -2000 + Math.random() * 4000;
+			double z;
+			if (i < 50000) {
+				z = 100;
+			}
+			else 
+				z = -100;
 			points[i] = new Point3d(x, y, z);
 		}
 	}
